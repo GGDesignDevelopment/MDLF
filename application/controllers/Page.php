@@ -1,6 +1,6 @@
 <?php
 
-class Home extends Frontend_Controller {
+class Page extends Frontend_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -38,7 +38,7 @@ class Home extends Frontend_Controller {
 			@include_once($file);
 		}
 		$pagenew = new page($this);
-		
+
 		// Cargo subview
 		$this->data['subview'] = 'frontend/home';
 		$this->load->view('frontend/_layout_main', $this->data);
