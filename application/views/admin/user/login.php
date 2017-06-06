@@ -4,41 +4,73 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <link href="<?php echo site_url('css/bootstrap.min.css');?>" rel="stylesheet">
-    <link href="<?php echo site_url('css/fileinput.min.css');?>" rel="stylesheet">
+		<link rel="stylesheet" href="<? echo site_url('styles/login.css'); ?>'">
+    <title>Login MDLF</title>
   </head>
-	<body style="background: #555">
-	 	<div class="modal-dialog">
-	 		<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Login</h4>
-				</div>
-				<div class="modal-body">
-				<?php echo form_open('','class="form-horizontal" role="form"');?>
-					<div class="form-group">
-						<label class="control-label col-sm-2">Usuario</label>
-						<div class="col-md-10"><?php echo form_input('email','','class="form-control"');?></div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-2">Password</label>
-						<div class="col-md-10"><?php echo form_password('password','','class="form-control"');?></div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<?php echo form_submit('submit','log in','class="btn btn-primary btn-block"');?>
+	<body>
+		<style>
+			#main {
+				background: lightslategrey;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				display: flex;
+				flex-flow: row nowrap;
+				align-content: center;
+				justify-content: center;
+				align-items: center;
+			}
+			.centered-container {
+				width: 30vw;
+				background: white;
+				border: 1px solid grey; 
+				border-radius: 5px;
+				padding: 10px;
+			}
+			.row-container {
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.row-container .row label {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 1rem;
+				color: black;
+			}
+			.row-container .row input {
+				font-family: Arial, Helvetica, sans-serif;
+				color: black;
+				border: 1px solid black;
+				padding: .2rem;
+				border-radius: 5px;
+			}
+			.row-container .row input[type=submit] {
+				background: orangered;
+				color: white;
+			}
+		</style>
+	 	<div id="main">
+			<div class="centered-container">
+				<form method="POST">
+					<div class="row-container">
+						<div class="row">
+							<label for="email">Usuario</label>
+							<input type="text" name="email" id="email">
+						</div>
+						<div class="row">
+							<label for="password">Contrase&ntilde;a</label>
+							<input type="password" name="password" id="password">
+						</div>
+						<div class="row">
+							<input type="submit" name="submit" value="login">
 						</div>
 					</div>
-				<?php echo form_close();?>
-				</div>
-	 			<div class="modal-footer">
-	 			</div>
-	 		</div>
-	 	</div>
-
-	  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-		<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	  <script src="<?php echo site_url('js/bootstrap.min.js');?>"></script>
-	  <script src="<?php echo site_url('js/fileinput.min.js');?>"></script>
+				</form>
+			</div>
+		</div>
+	  <script></script>
   </body>
 </html>
