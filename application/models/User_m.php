@@ -20,7 +20,7 @@ class User_M extends MY_Model {
 					'field' => 'nombre',
 					'label' => 'Nombre',
 					'rules' => 'trim|required'
-			),				
+			),
 			'email' => array(
 					'field' => 'email',
 					'label' => 'Email',
@@ -35,20 +35,20 @@ class User_M extends MY_Model {
 					'field' => 'password_confirm',
 					'label' => 'Confirmar Password',
 					'rules' => 'trim|matches[password]'
-			)			
-			
+			)
+
 	);
-	
+
 	function __construct() {
 		parent::__construct();
 	}
-	
+
 	function login() {
 		$user = $this->get_by(array(
 				'email' => $this->input->post('email'),
 				'password' => $this->hash($this->input->post('password')),
 		),TRUE);
-		
+
 		if (count($user)) {
 			$data = array(
 				'nombre' => $user->nombre,
@@ -59,23 +59,20 @@ class User_M extends MY_Model {
 			$this->session->set_userdata($data);
 		}
 	}
+
 	function logout() {
 		$this->session->sess_destroy();
 	}
-	
+
 	function loggedin() {
 		return (bool) $this->session->userdata('loggedin');
 	}
-	
+
 	function new_user() {
 		$user = new stdClass();
 		$user->nombre = '';
 		$user->email = '';
 		$user->password = '';
 		return $user;
-	}
-	
-	function hash($string) {
-		return hash('sha512', $string . config_item('encryption_key'));
 	}
 }

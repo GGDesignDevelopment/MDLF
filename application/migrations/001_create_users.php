@@ -26,9 +26,14 @@ class Migration_Create_Users extends CI_Migration {
 						'constraint' => '100',
 				),
 		));
-		
+
 		$this->dbforge->add_key('id', TRUE);
 		$this->dbforge->create_table('usuarios');
+
+		$data['email'] = 'admin';
+		$data['password'] = hash_512('admin');
+		$this->db->set($data);
+		$this->db->insert('usuarios');
 	}
 
 	public function down()

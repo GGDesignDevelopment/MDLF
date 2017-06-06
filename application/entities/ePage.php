@@ -3,7 +3,7 @@
 /**
  *
  */
-class Page
+class ePage
 {
   protected $id;
   protected $descripcion;

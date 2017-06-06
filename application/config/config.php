@@ -6,6 +6,11 @@ function __autoload($classname) {
 		$file = APPPATH . 'libraries/' . $classname . '.php';
 		if (file_exists($file) && is_file($file)) {
 			@include_once($file);
+		} else {
+			$file = APPPATH . 'entities/' . $classname . '.php';
+			if (file_exists($file) && is_file($file)) {
+				@include_once($file);
+			}
 		}
 	}
 }
