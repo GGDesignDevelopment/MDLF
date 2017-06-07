@@ -10,7 +10,7 @@
 	<body>
 		<style>
 			#main {
-				background: lightslategrey;
+				background: lightgrey;
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -23,11 +23,11 @@
 				align-items: center;
 			}
 			.centered-container {
-				width: 30vw;
+				width: 20vw;
 				background: white;
 				border: 1px solid grey; 
 				border-radius: 5px;
-				padding: 10px;
+				padding: 50px;
 			}
 			.row-container {
 				display: flex;
@@ -35,9 +35,16 @@
 				align-items: center;
 				justify-content: space-between;
 			}
+			.row-container .row {
+				width: 100%;
+				padding: 10px;
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-between;
+			}
 			.row-container .row label {
 				font-family: Arial, Helvetica, sans-serif;
-				font-size: 1rem;
+				font-size: .9rem;
 				color: black;
 			}
 			.row-container .row input {
@@ -48,8 +55,11 @@
 				border-radius: 5px;
 			}
 			.row-container .row input[type=submit] {
-				background: orangered;
+				background-color: royalblue;
+				border: 0;
+				font-size: 1rem;
 				color: white;
+				padding: 10px 25px;
 			}
 		</style>
 	 	<div id="main">
