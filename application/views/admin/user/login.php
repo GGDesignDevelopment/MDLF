@@ -24,7 +24,7 @@
 			}
 			.centered-container {
 				width: 20vw;
-				background: white; 
+				background: white;
 				border-radius: 5px;
 				padding: 50px;
 				box-shadow: 0 3px 5px rgba(0, 0, 0, .4);
@@ -57,7 +57,7 @@
 			}
 			.row-container .row input:focus {
 				outline: 0;
-				border-color: royalblue; 
+				border-color: royalblue;
 			}
 			.row-container .row input[type=submit] {
 				background-color: royalblue;

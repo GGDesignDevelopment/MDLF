@@ -8,7 +8,7 @@ class User extends Admin_Controller {
 	// Principales
 	function login() {
 		$home = 'admin/home';
-		if ($this->input->method()==='get') {
+		if ($this->input->method()==='get') {			
 			eUser::loggedin() == FALSE || redirect($home);
 			$this->load->view('admin/user/login', $this->data);
 		} else {

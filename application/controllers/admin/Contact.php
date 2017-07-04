@@ -8,7 +8,9 @@ class Contacto extends Admin_Controller {
 		//Lista de contactos
 	}
 
-	function edit($id = NULL) {
+	function edit($id) {
+
+		//
 		// if ($id) {
 		// 	$this->data['contacto'] = $this->contacto_m->get($id);
 		// 	count($this->data['contacto']) || $this->data['errores'][] = 'Contacto no encontrado';

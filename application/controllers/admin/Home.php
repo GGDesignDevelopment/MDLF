@@ -8,8 +8,4 @@ class Home extends Admin_Controller {
 	function index() {
 		// Homne de la aplicacion version administrador
 	}
-
-	function contact() {
-		// POST formulario de contacto
-	}
 }
