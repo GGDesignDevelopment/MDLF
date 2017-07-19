@@ -10,7 +10,8 @@ class eConfig
   public $textoMiTrabajo;
   public $imagenSobreMi;
   public $imagenMiTrabajo;
-
+  public $imagenPerfil;
+  
   function __construct()
   {
     // $this->id = 1;

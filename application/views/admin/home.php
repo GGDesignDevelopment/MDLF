@@ -8,6 +8,8 @@
 <!--  Informacion del sobre mi -->
 <p><?php echo $config->tituloSobreMi; ?></p>
 <img src="<?php echo site_url($photosDirectory . $config->imagenSobreMi); ?>" alt="">
+<img src="<?php echo site_url($photosDirectory . $config->imagenPerfil); ?>" alt="">
+<img src="<?php echo site_url($photosDirectory . $config->imagenMiTrabajo); ?>" alt="">
 
 <!-- Social Network  -->
 <?php foreach ($social as $sn): ?>
@@ -16,6 +18,7 @@
 
 <!--  Informacion del sobre mi -->
 <form enctype="multipart/form-data" class="" action="<?php echo site_url('admin/home/saveConfig');?>" method="post">
+  <input type="file" name="imagenPerfil">
   <input type="text" name="tituloSobreMi" value="<?php echo $config->tituloSobreMi; ?>">
   <input type="text" name="textoSobreMi" value="<?php echo $config->textoSobreMi; ?>">
   <input type="file" name="imagenSobreMi">

@@ -22,6 +22,18 @@ class Home extends Admin_Controller {
 		$config = new eConfig();
 		$config->load();
 
+		if (!empty($_FILES['imagenPerfil']) && $_FILES['imagenPerfil']['name'] != '') {
+			$actual = $config->imagenPerfil;
+			$ext = explode('.', basename($_FILES['imagenPerfil']['name']));
+			$name = md5(uniqid()) . "." . array_pop($ext);
+			if (move_uploaded_file($_FILES['imagenPerfil']['tmp_name'], $this->data['photosDirectory'] . $name)) {
+					$config->imagenPerfil = $name;
+					if ($actual != '') {
+							unlink($this->data['photosDirectory'] . $actual);
+					}
+			}
+		}
+
 		if (!empty($_FILES['imagenSobreMi']) && $_FILES['imagenSobreMi']['name'] != '') {
 			$actual = $config->imagenSobreMi;
 			$ext = explode('.', basename($_FILES['imagenSobreMi']['name']));
