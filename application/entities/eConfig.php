@@ -11,7 +11,9 @@ class eConfig
   public $imagenSobreMi;
   public $imagenMiTrabajo;
   public $imagenPerfil;
-  
+  public $telefono;
+  public $email;
+
   function __construct()
   {
     // $this->id = 1;

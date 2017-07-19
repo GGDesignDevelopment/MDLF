@@ -16,9 +16,11 @@
   <p><?php echo $sn->icon;?></p>
 <?php endforeach;?>
 
-<!--  Informacion del sobre mi -->
+<!--  Informacion del sobre mi form -->
 <form enctype="multipart/form-data" class="" action="<?php echo site_url('admin/home/saveConfig');?>" method="post">
   <input type="file" name="imagenPerfil">
+  <input type="text" name="telefono" value="<?php echo $config->telefono; ?>">
+  <input type="text" name="email" value="<?php echo $config->email; ?>">
   <input type="text" name="tituloSobreMi" value="<?php echo $config->tituloSobreMi; ?>">
   <input type="text" name="textoSobreMi" value="<?php echo $config->textoSobreMi; ?>">
   <input type="file" name="imagenSobreMi">

@@ -57,7 +57,8 @@ class Home extends Admin_Controller {
 					}
 			}
 		}
-
+		$config->telefono = $this->input->post('telefono');
+		$config->email = $this->input->post('email');
 		$config->tituloSobreMi = $this->input->post('tituloSobreMi');
 		$config->textoSobreMi = $this->input->post('textoSobreMi');
 		$config->tituloMiTrabajo = $this->input->post('tituloMiTrabajo');

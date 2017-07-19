@@ -6,6 +6,8 @@
 <!--  Informacion del sobre mi -->
 <p><?php echo $config->tituloSobreMi; ?></p>
 <img src="<?php echo site_url($photosDirectory . $config->imagenSobreMi); ?>" alt="">
+<p><?php echo $config->telefono; ?></p>
+<p><?php echo $config->email; ?></p>
 
 <!-- Social Network  -->
 <?php foreach ($social as $sn): ?>
