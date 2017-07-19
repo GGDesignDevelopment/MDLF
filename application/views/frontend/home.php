@@ -4,16 +4,19 @@
 <?php endforeach;?>
 
 <!--  Informacion del sobre mi -->
-<?php if ($config): ?>
-  <p><?php echo $config->tituloSobreMi; ?></p>
-<?php endif;?>
+<p><?php echo $config->tituloSobreMi; ?></p>
+<img src="<?php echo $photosDirectory . $config->imagenSobreMi; ?>" alt="">
 
 <!-- Social Network  -->
 <?php foreach ($social as $sn): ?>
   <p><?php echo $sn->icon;?></p>
 <?php endforeach;?>
 
-<!--  Imagen de fondo de contacto -->
-<?php if ($config): ?>
-  <p><?php echo $config->portadaContacto; ?></p>
-<?php endif;?>
+<!-- Contact Form -->
+<form class="" action="home/contact" method="post">
+  <input type="text" name="nombre" value="Juan">
+  <input type="text" name="email" value="Juan@gg.com">
+  <input type="text" name="celular" value="12345678">
+  <input type="text" name="texto" value="Hola soy juan.">
+  <button type="submit" name="button">Enviar</button>
+</form>

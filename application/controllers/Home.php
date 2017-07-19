@@ -6,10 +6,11 @@ class Home extends Frontend_Controller {
 		$this->load->model('page_m');
 		$this->load->model('config_m');
 		$this->load->model('social_m');
+		$this->load->model('contacto_m');
 	}
 
 	function index() {
-		//Home principal de la pagina
+		// Home Page
 		$this->data['pages'] = ePage::getChildrens();
 		$this->data['config'] = eConfig::get();
 		$this->data['social'] = eSocial::getEnabled();
@@ -17,6 +18,13 @@ class Home extends Frontend_Controller {
 	}
 
 	function contact() {
-		// POST formulario de contacto
+		// [POST] - Contact Form
+		$contact = new eContact();
+		$contact->nombre = $this->input->post('nombre');
+		$contact->email = $this->input->post('email');
+		$contact->celular = $this->input->post('celular');
+		$contact->texto = $this->input->post('texto');
+		$contact->save();
+		
 	}
 }
