@@ -5,7 +5,7 @@
 
 <!--  Informacion del sobre mi -->
 <p><?php echo $config->tituloSobreMi; ?></p>
-<img src="<?php echo $photosDirectory . $config->imagenSobreMi; ?>" alt="">
+<img src="<?php echo site_url($photosDirectory . $config->imagenSobreMi); ?>" alt="">
 
 <!-- Social Network  -->
 <?php foreach ($social as $sn): ?>
@@ -13,10 +13,10 @@
 <?php endforeach;?>
 
 <!-- Contact Form -->
-<form class="" action="home/contact" method="post">
-  <input type="text" name="nombre" value="Juan">
-  <input type="text" name="email" value="Juan@gg.com">
-  <input type="text" name="celular" value="12345678">
-  <input type="text" name="texto" value="Hola soy juan.">
+<form class="" action="<?php echo site_url('home/contact');?>" method="post">
+  <input type="text" name="nombre" value="">
+  <input type="text" name="email" value="">
+  <input type="text" name="celular" value="">
+  <input type="text" name="texto" value="">
   <button type="submit" name="button">Enviar</button>
 </form>

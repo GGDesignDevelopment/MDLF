@@ -26,10 +26,10 @@ class Home extends Admin_Controller {
 			$actual = $config->imagenSobreMi;
 			$ext = explode('.', basename($_FILES['imagenSobreMi']['name']));
 			$name = md5(uniqid()) . "." . array_pop($ext);
-			if (move_uploaded_file($_FILES['imagenSobreMi']['tmp_name'], $data['photosDirectory'] . $name)) {
+			if (move_uploaded_file($_FILES['imagenSobreMi']['tmp_name'], $this->data['photosDirectory'] . $name)) {
 					$config->imagenSobreMi = $name;
 					if ($actual != '') {
-							unlink($data['photosDirectory'] . $actual);
+							unlink($this->data['photosDirectory'] . $actual);
 					}
 			}
 		}
@@ -38,10 +38,10 @@ class Home extends Admin_Controller {
 			$actual = $config->imagenMiTrabajo;
 			$ext = explode('.', basename($_FILES['imagenMiTrabajo']['name']));
 			$name = md5(uniqid()) . "." . array_pop($ext);
-			if (move_uploaded_file($_FILES['imagenMiTrabajo']['tmp_name'], $data['photosDirectory'] . $name)) {
+			if (move_uploaded_file($_FILES['imagenMiTrabajo']['tmp_name'], $this->data['photosDirectory'] . $name)) {
 					$config->imagenMiTrabajo = $name;
 					if ($actual != '') {
-							unlink($data['photosDirectory'] . $actual);
+							unlink($this->data['photosDirectory'] . $actual);
 					}
 			}
 		}

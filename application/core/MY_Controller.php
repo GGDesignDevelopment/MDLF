@@ -11,6 +11,6 @@ class MY_Controller extends CI_Controller {
 		date_default_timezone_set("America/Montevideo");
 		$this->data['scripts'] = array();
 		$this->data['styles'] = array();
-		$this->data['photosDirectory'] = site_url('photos') . '/';
+		$this->data['photosDirectory'] = 'photos/';
 	}
 }

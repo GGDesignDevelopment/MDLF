@@ -12,7 +12,8 @@ class Home extends Frontend_Controller {
 	function index() {
 		// Home Page
 		$this->data['pages'] = ePage::getChildrens();
-		$this->data['config'] = eConfig::get();
+		$this->data['config'] = new eConfig();
+		$this->data['config']->load();
 		$this->data['social'] = eSocial::getEnabled();
 		$this->load->view('frontend/home',$this->data);
 	}
@@ -25,6 +26,6 @@ class Home extends Frontend_Controller {
 		$contact->celular = $this->input->post('celular');
 		$contact->texto = $this->input->post('texto');
 		$contact->save();
-		
+
 	}
 }

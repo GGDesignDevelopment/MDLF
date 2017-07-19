@@ -7,7 +7,7 @@
 
 <!--  Informacion del sobre mi -->
 <p><?php echo $config->tituloSobreMi; ?></p>
-<img src="<?php echo $photosDirectory . $config->imagenSobreMi; ?>" alt="">
+<img src="<?php echo site_url($photosDirectory . $config->imagenSobreMi); ?>" alt="">
 
 <!-- Social Network  -->
 <?php foreach ($social as $sn): ?>
@@ -15,7 +15,7 @@
 <?php endforeach;?>
 
 <!--  Informacion del sobre mi -->
-<form enctype="multipart/form-data" class="" action="saveConfig" method="post">
+<form enctype="multipart/form-data" class="" action="<?php echo site_url('admin/home/saveConfig');?>" method="post">
   <input type="text" name="tituloSobreMi" value="<?php echo $config->tituloSobreMi; ?>">
   <input type="text" name="textoSobreMi" value="<?php echo $config->textoSobreMi; ?>">
   <input type="file" name="imagenSobreMi">
