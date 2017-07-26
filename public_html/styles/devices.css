@@ -1,0 +1,10 @@
+@media all and (orientation: portrait) {
+    my-carousel div img {
+        position: absolute;
+        left: -40%;
+        height: 90vh;
+        width: auto;
+        z-index: 2;
+        height: auto;
+    }
+}
