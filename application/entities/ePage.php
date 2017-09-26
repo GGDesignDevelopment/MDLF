@@ -3,8 +3,10 @@
 /**
  *
  */
-class ePage
+class ePage extends Entity
 {
+  static protected $_keys = ['id'];
+  static protected $_model = 'config_m';
   protected $id;
   protected $descripcion;
   protected $titulo;
@@ -15,6 +17,7 @@ class ePage
   // protected $hijos;
 
   function __construct() {
+    parent::__construct();
   }
 
   static function getChildrens($parent=0) {
@@ -23,17 +26,17 @@ class ePage
     return $childrens;
   }
 
-  function getAll()
-  {
-    $coleccion = array();
-    $pages = $this->page_m->get_hijos(0);
-    foreach ($pages as $page) {
-      $newpage = new page($this->caller);
-      $newpage = $page;
-
-      $coleccion[] = $newpage;
-    }
-
-    return $coleccion;
-  }
+  // function getAll()
+  // {
+  //   $coleccion = array();
+  //   $pages = $this->page_m->get_hijos(0);
+  //   foreach ($pages as $page) {
+  //     $newpage = new page($this->caller);
+  //     $newpage = $page;
+  //
+  //     $coleccion[] = $newpage;
+  //   }
+  //
+  //   return $coleccion;
+  // }
 }

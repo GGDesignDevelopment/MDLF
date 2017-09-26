@@ -26,6 +26,5 @@ class Home extends Frontend_Controller {
 		$contact->celular = $this->input->post('celular');
 		$contact->texto = $this->input->post('texto');
 		$contact->save();
-
 	}
 }

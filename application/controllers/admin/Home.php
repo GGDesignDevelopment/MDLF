@@ -14,6 +14,8 @@ class Home extends Admin_Controller {
 		$this->data['config'] = new eConfig();
 		$this->data['config']->load();
 		$this->data['social'] = eSocial::getEnabled();
+		// $test = new Test();
+		// $test->load();
 		$this->load->view('admin/home',$this->data);
 	}
 
