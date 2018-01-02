@@ -10,12 +10,11 @@ class Home extends Admin_Controller {
 
 	function index() {
 		// Home Page Admin
-		$this->data['pages'] = ePage::getChildrens();
+		$this->data['title'] = "Mariana de la Fuente";
+		$this->data['pages'] = ePage::find(['padre' => 0]);
 		$this->data['config'] = new eConfig();
 		$this->data['config']->load();
-		$this->data['social'] = eSocial::getEnabled();
-		// $test = new Test();
-		// $test->load();
+		$this->data['social'] = eSocial::find(['enabled' => 'S']);
 		$this->load->view('admin/home',$this->data);
 	}
 

@@ -1,17 +1,14 @@
 <?php
 
-/**
- *
- */
 class ePage extends Entity
 {
   static protected $_keys = ['id'];
-  static protected $_model = 'config_m';
-  protected $id;
-  protected $descripcion;
-  protected $titulo;
-  protected $texto;
-  protected $base64;
+  static protected $_model = 'page_m';
+  public $id;
+  public $descripcion;
+  public $titulo;
+  public $texto;
+  public $portada;
 
   // protected $imagenes;
   // protected $hijos;
@@ -20,11 +17,11 @@ class ePage extends Entity
     parent::__construct();
   }
 
-  static function getChildrens($parent=0) {
-    $ci =& get_instance();
-    $childrens = $ci->page_m->get(['padre' => $parent], FALSE);
-    return $childrens;
-  }
+  // static function getChildrens($parent=0) {
+  //   $ci =& get_instance();
+  //   $childrens = $ci->page_m->get(['padre' => $parent], FALSE);
+  //   return $childrens;
+  // }
 
   // function getAll()
   // {

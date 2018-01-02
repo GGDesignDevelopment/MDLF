@@ -1,7 +1,9 @@
 <?php
 
-class eContact
+class eContact extends Entity
 {
+  static protected $_keys = ['id'];
+  static protected $_model = 'contacto_m';
   protected $id;
   protected $estado;
   protected $creado;
@@ -14,17 +16,5 @@ class eContact
   {
     $this->estado = 0;
     $this->creado = date('y-m-d H:i:s');
-  }
-
-  function save()
-  {
-    foreach($this as $key => $value) {
-      if (!is_array($this->$key)) {
-        $data[$key] = $value;
-      }
-    }
-
-    $ci =& get_instance();
-    $ci->contacto_m->save($data, NULL);
   }
 }

@@ -224,40 +224,61 @@ section.about {
     padding-left: 20px;
 }
 
+section.about button {
+    grid-row: 8;
+    grid-column: 3;
+}
+
 .img-holder.profile {
-    /*grid-column: col 1;*/
+    grid-column: 1;
     grid-row: row / span 3;
     align-self: end;
     border-bottom: 5px solid var(--accent-color);
 }
 
 .info-holder.profile {
-    /*grid-column: col 1;*/
+    grid-column: 1;
     grid-row: row 4 / span 5;
 }
 
 .img-holder.about-me {
-    /*grid-column: col 2;*/
+    grid-column: 2;
     grid-row: row 5 / span 4;
     border-top: 5px solid var(--accent-color);
 }
 
 .info-holder.about-me {
-    /*grid-column: col 2;*/
+    grid-column: 2;
     grid-row: row / span 4;
     align-self: end;
 }
 
 .img-holder.my-style {
-    /*grid-column: col 3;*/
+    grid-column: 3;
     grid-row: row / span 4;
     align-self: end;
     border-bottom: 5px solid var(--accent-color);
 }
 
 .info-holder.my-style {
-    /*grid-column: col 3;*/
+    grid-column: 3;
     grid-row: row 5 / span 4;
+}
+
+.info-holder input {
+  font-family: var(--text-font);
+  font-size: 1.2em;
+  padding: 3px;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.info-holder textarea {
+  font-family: var(--text-font);
+  font-size: .9em;
+  color: var(--main-color);
+  width: 100%;
+  padding: 3px;
 }
 
 .img-holder {
@@ -320,6 +341,27 @@ section.about {
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 20px;
+}
+
+.info-holder.profile .icons-holder div {
+    position: relative;
+    /* color: #aaa; */
+    /* font-size: 16px; */
+}
+
+.info-holder.profile .icons-holder div input{
+    /* width: 250px; */
+    height: 32px;
+
+    background: #fcfcfc;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    text-indent: 32px;
+}
+
+.info-holder.profile .icons-holder div iron-icon {
+    position: absolute;
 }
 
 .info-holder.profile .contact-info {

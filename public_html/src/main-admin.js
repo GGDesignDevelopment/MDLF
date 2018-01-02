@@ -1,23 +1,47 @@
 (function() {
     const carousel = document.querySelector('my-carousel');
-    const modal = document.querySelector('modal-element');
-    const contactButton = document.querySelector('.contact-button');
-    const closeModal = document.querySelector('.top-bar');
-    const form = document.querySelector('form');
-    const clearForm = form.querySelector('.cancel');
+    const btnSaveAbout = document.querySelector('#btnSaveAbout');
+    const about = document.querySelector('section.about');
 
-    closeModal.addEventListener('click', e => modal.toggle());
-    contactButton.addEventListener('click', e => modal.toggle());
+    // FormData info
+    const telefono = about.querySelector("input[name='telefono']");
+    const email = about.querySelector("input[name='email']");
+    const tituloSobreMi = about.querySelector("inpuxnt[name='tituloSobreMi']");
+    const textoSobreMi = about.querySelector("textarea[name='textoSobreMi']");
+    const tituloMiTrabajo = about.querySelector("input[name='tituloMiTrabajo']");
+    const textoMiTrabajo = about.querySelector("textarea[name='textoMiTrabajo']");
 
     document.addEventListener('keydown', (e) => {
         (e.key === 'ArrowRight') && carousel.next();
         (e.key === 'ArrowLeft') && carousel.previous();
     });
 
-    form.addEventListener('submit', sendFormData);
-    clearForm.addEventListener('click', clearFormData);
+    btnSaveAbout.addEventListener('click', saveConfig);
 
+    // form.addEventListener('submit', sendFormData);
     carousel.addEventListener('pagechanged', animateCarouselItems);
+
+    function test() {
+        e.preventDefault();
+    }
+    function saveConfig() {
+        let formAction = btnSaveAbout.getAttribute("data-action");
+        let formData = new FormData();
+        formData.set('telefono',telefono.value);
+        formData.set('email',email.value);
+        formData.set('tituloSobreMi',tituloSobreMi.value);
+        formData.set('textoSobreMi',textoSobreMi.value);
+        formData.set('tituloMiTrabajo',tituloMiTrabajo.value);
+        formData.set('textoMiTrabajo',textoMiTrabajo.value);
+
+        let headers = {
+            method: "POST",
+            body: formData
+        }
+        fetch(formAction, headers)
+            .then(() => console.log('then'))
+            .catch(() => console.log('error'));
+    }
 
     function sendFormData(e) {
         // console.log(e);

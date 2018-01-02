@@ -3,13 +3,15 @@
 class Page extends Frontend_Controller {
 	function __construct() {
 		parent::__construct();
+		$this->load->model('page_m');
 	}
 
-	function index() {
-		//Home de paginas principales
+	function padre($padre=0) {
+		$pages = ePage::find(['padre' => $padre]);
+		var_dump($pages);
 	}
 
-	function page($id) {
+	function id($id=null) {
 
 	}
 }

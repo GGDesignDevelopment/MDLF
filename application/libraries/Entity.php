@@ -18,7 +18,22 @@ class Entity
     $model = $class::$_model;
 
     $col = $ci->$model->get($where, false);
-    return $col;
+    $retorno = array();
+
+    foreach($col as $item){
+      $new = new $class;
+      $new->loaded = true;
+      foreach($new as $key => $value) {
+        if (!is_array($new->$key) && ($key != 'loaded'))
+        {
+          $new->$key = $item->$key;
+        }
+      }
+
+      $retorno[] = $new;
+    }
+
+    return $retorno;
   }
 
   function load($keys=null)

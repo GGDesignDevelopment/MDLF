@@ -11,10 +11,11 @@ class Home extends Frontend_Controller {
 
 	function index() {
 		// Home Page
-		$this->data['pages'] = ePage::getChildrens();
+		$this->data['title'] = "Mariana de la Fuente";
+		$this->data['pages'] = ePage::find(['padre' => 0]);
 		$this->data['config'] = new eConfig();
 		$this->data['config']->load();
-		$this->data['social'] = eSocial::getEnabled();
+		$this->data['social'] = eSocial::find(['enabled' => 'S']);
 		$this->load->view('frontend/home',$this->data);
 	}
 
@@ -24,7 +25,7 @@ class Home extends Frontend_Controller {
 		$contact->nombre = $this->input->post('nombre');
 		$contact->email = $this->input->post('email');
 		$contact->celular = $this->input->post('celular');
-		$contact->texto = $this->input->post('texto');
+		$contact->texto = $this->input ->post('texto');
 		$contact->save();
 	}
 }
