@@ -63,18 +63,18 @@
         let carouselSelected = carousel.selected;
 
         let title = carouselSelected.querySelector('h1');
-        let description = carouselSelected.querySelector('p');
+        // let description = carouselSelected.querySelector('p');
         let button = carouselSelected.querySelector('button');
 
         //setting the animation
         translateX(title, -500);
-        translateX(description, -500);
+        // translateX(description, -500);
         translateX(button, 800);
 
         setTimeout(() => {
             //starting the animation
             translateX(title, 0, true);
-            translateX(description, 0, true);
+            // translateX(description, 0, true);
             translateX(button, 0, true);
         }, 200);
     }

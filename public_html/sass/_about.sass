@@ -1,0 +1,180 @@
+section
+    height: 100vh
+    width: 100vw
+    &.about
+        display: grid
+        grid-gap: 20px
+        grid-template-columns: 2fr 3fr 3fr
+        grid-template-rows: repeat(auto-fill, [row] 10%)
+        justify-content: center
+        padding-right: 35px
+        padding-left: 20px
+        position: relative
+        button
+            bottom: 8vh
+            right: 44px
+            position: absolute
+            font-family: $text-font
+            font-size: .8rem
+            background: $accent-color
+            color: $main-color
+            padding: 14px 28px
+            z-index: 5
+            border: 0
+            box-shadow: $shadow-one
+            text-transform: uppercase
+            &:hover
+                box-shadow: $shadow-three
+            &:focus
+                outline: none
+
+.img-holder
+    min-height: 100px
+    img
+        max-width: 100%
+        height: auto
+    &.profile
+        grid-column: 1
+        grid-row: row / span 3
+        align-self: end
+        border-bottom: 5px solid $accent-color
+    &.about-me
+        grid-column: 2
+        grid-row: row 5 / span 4
+        border-top: 5px solid $accent-color
+    &.my-style
+        grid-column: 3
+        grid-row: row / span 4
+        align-self: end
+        border-bottom: 5px solid $accent-color
+    .img-crop
+        max-height: 240px
+        overflow: hidden
+        position: relative
+        text-align: center
+        display: flex
+        justify-content: center
+        align-items: center
+
+        // div
+        //     display: hidden
+        //     position: absolute
+        //     border: 5px dashed black
+        //     border-radius: 5px
+        //     width: 95%
+        //     height: 95%
+        &:hover
+            opacity: .5
+            // div
+            //     display: block
+            //     z-index: 1
+        img
+            display: block
+            max-width: 100%
+            /* just in case, to force correct aspect ratio */
+            height: auto !important
+            width: auto\9
+            /* ie8+9 */
+            /* lt ie8 */
+            -ms-interpolation-mode: bicubic
+            &:hover
+                zoom: 120%
+                transition: zoom .3s linear
+        input
+            position: absolute
+            top: 0
+            right: 0
+            margin: 0
+            padding: 0
+            cursor: pointer
+            height: 100%
+            width: 100%
+            opacity: 0
+            z-index: 2
+
+.info-holder
+    padding: 10px
+    &.profile
+        grid-column: 1
+        grid-row: row 4 / span 5
+        .icons-holder
+            display: flex
+            flex-flow: row wrap
+            justify-content: space-around
+            margin: 20px
+            div
+                position: relative
+                width: 100%
+                input
+                    width: 100%
+                    height: 32px
+                    background: #fcfcfc
+                    border: 1px solid #aaa
+                    border-radius: 5px
+                    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset
+                    padding-left: 30px
+                    padding-right: 5px
+                    // text-indent: 32px
+                iron-icon
+                    position: absolute
+                    box-sizing: content-box
+                    padding-left: 8px
+                    padding-top: 8px
+
+    &.about-me
+        grid-column: 2
+        grid-row: row / span 4
+        align-self: end
+    &.my-style
+        grid-column: 3
+        grid-row: row 5 / span 4
+    input
+        font-family: $text-font
+        font-size: 1.2em
+        padding: 3px
+        color: $main-color
+        margin-bottom: 10px
+        background: #fcfcfc
+        border: 1px solid #aaa
+        border-radius: 5px
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset
+    textarea
+        font-family: $text-font
+        font-size: .9em
+        color: $main-color
+        width: 100%
+        padding: 3px
+        background: #fcfcfc
+        border: 1px solid #aaa
+        border-radius: 5px
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset
+    h1
+        font-family: $text-font
+        font-size: 1.2em
+        text-align: center
+        color: $main-color
+        margin-bottom: 10px
+    h2
+        font-family: $text-font
+        font-size: 1em
+        text-align: center
+        color: $main-color
+
+/* hack to crop image and keep it centered i think */
+
+.flip
+    -webkit-transform: rotate(180deg)
+    -moz-transform: rotate(180deg)
+    -ms-transform: rotate(180deg)
+    -o-transform: rotate(180deg)
+    transform: rotate(180deg)
+    /* needed? not sure */
+    zoom: 1
+
+
+img.flip
+    /* if native or declared width of img.scale
+     is less than div.crop-height, this will
+     flipped img left */
+    float: right
+    /* add clearfix if needed */

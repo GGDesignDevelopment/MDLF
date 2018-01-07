@@ -156,13 +156,16 @@ my-carousel div {
 my-carousel div h1 {
     position: absolute;
     top: 14vh;
-    left: 24px;
+    /* left: 24px; */
     font-family: var(--text-font);
     color: var(--main-color);
-    font-size: 3.8rem;
-    line-height: 1.8rem;
+    background: var(--accent-faded);
+    opacity: 0.8;
+    font-size: 3rem;
+    /* line-height: 1.8rem; */
     z-index: 5;
-    padding: 0 14px 35px 12px;
+    padding: 3px 3px 3px 36px;
+    border-radius: 0 5px 5px 0;
 }
 
 my-carousel div p {
@@ -292,6 +295,9 @@ section.about {
 .img-holder .img-crop {
     max-height: 240px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .img-holder .img-crop img {

@@ -8,7 +8,7 @@
     <title><?php echo $title; ?></title>
     <meta name="description" content="My App description">
 
-    <link rel="icon" href="images/favicon.ico">
+    <link rel="icon" href="img/favicon.ico">
 
     <!-- See https://goo.gl/OOhYW5 -->
     <link rel="manifest" href="manifest.json">
@@ -44,12 +44,8 @@
                 <?php foreach ($pages as $page): ?>
                 <div>
                     <h1>
-                        <?php echo $page->titulo; ?>
-
-                    </h1>
-                    <p>
                         <?php echo $page->descripcion; ?>
-                    </p>
+                    </h1>
                     <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">
                     <button action="viewPage" page="<?php echo $page->id; ?>">ver mas</button>
                 </div>
@@ -67,10 +63,10 @@
                 <h2>Redes Sociales</h2>
 
                 <div class="icons-holder">
-                    <?php foreach ($social as $sn): ?>
-
-                    <a href="<?php echo $sn->url; ?>" target="_blank"><iron-icon icon="custom-icons:<?php echo $sn->icon; ?>"></iron-icon></a>
-                    <?php endforeach;?>
+                    <a href="<?php echo $config->linkFacebook; ?>" target="_blank"><iron-icon icon="custom-icons:facebook"></iron-icon></a>
+                    <a href="<?php echo $config->linkTwitter; ?>" target="_blank"><iron-icon icon="custom-icons:twitter"></iron-icon></a>
+                    <a href="<?php echo $config->linkFlickr; ?>" target="_blank"><iron-icon icon="custom-icons:flickr"></iron-icon></a>
+                    <a href="<?php echo $config->linkInstagram; ?>" target="_blank"><iron-icon icon="custom-icons:instagram"></iron-icon></a>
                 </div>
                 <div class="contact-info">
                     <span>

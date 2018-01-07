@@ -12,6 +12,10 @@ class eConfig extends Entity
   public $imagenSobreMi;
   public $imagenMiTrabajo;
   public $imagenPerfil;
+  public $linkFacebook;
+  public $linkTwitter;
+  public $linkInstagram;
+  public $linkFlickr;
   public $telefono;
   public $email;
 

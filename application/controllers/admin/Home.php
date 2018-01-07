@@ -58,6 +58,10 @@ class Home extends Admin_Controller {
 					}
 			}
 		}
+		$config->linkFacebook = $this->input->post('linkFacebook');
+		$config->linkTwitter = $this->input->post('linkTwitter');
+		$config->linkFlickr = $this->input->post('linkFlickr');
+		$config->linkInstagram = $this->input->post('linkInstagram');
 		$config->telefono = $this->input->post('telefono');
 		$config->email = $this->input->post('email');
 		$config->tituloSobreMi = $this->input->post('tituloSobreMi');
