@@ -45,7 +45,7 @@
                             <?php echo $page->descripcion; ?>
                         </h1>
                         <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">
-                        <button action="viewPage" page="<?php echo $page->id; ?>">ver mas</button>
+                        <a href="<?php echo site_url('admin/page/id/' . $page->id); ?>">Ver Mas</a>
                     </div>
                     <?php endforeach;?>
                 </my-carousel>

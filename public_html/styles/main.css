@@ -180,7 +180,7 @@ my-carousel div p {
     z-index: 5;
 }
 
-my-carousel div button {
+my-carousel div a {
     position: absolute;
     bottom: 8vh;
     right: 44px;
@@ -195,11 +195,11 @@ my-carousel div button {
     text-transform: uppercase;
 }
 
-my-carousel div button:hover {
+my-carousel div a:hover {
     box-shadow: var(--shadow-three);
 }
 
-my-carousel div button:focus {
+my-carousel div a:focus {
     outline: none;
 }
 

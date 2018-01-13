@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Lato");
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+a,
+a:hover,
+a:focus,
+a:visited {
+  color: black;
+  outline: 0;
+  text-decoration: none; }
+
+#sections-container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  overflow: hidden; }
+
+textarea {
+  height: 25vh;
+  resize: none; }
+
+button {
+  cursor: pointer; }
+
+header {
+  height: 10vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  /* */
+  padding: 24px;
+  background: #fcfcfc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  z-index: 3;
+  position: relative; }
+  header div h1 {
+    font-family: "Amatic SC", cursive;
+    font-size: 1.8rem; }
+  header div a {
+    font-family: "Lato", sans-serif;
+    color: #6c6c6c;
+    padding: 0px 20px; }
+
+.page-info {
+  max-height: 70vh;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  padding: 10px 15px 10px 10px; }
+  .page-info .image-holder {
+    overflow: hidden;
+    display: flex;
+    align-items: center; }
+    .page-info .image-holder img {
+      max-width: 100%;
+      width: 100%;
+      height: auto; }
+  .page-info .info-holder {
+    padding: 10px 30px;
+    background-color: #fcff5f;
+    opacity: 0.8; }
+    .page-info .info-holder h1 {
+      font-family: "Lato", sans-serif;
+      color: #262626;
+      font-size: 3rem; }
+    .page-info .info-holder p {
+      color: #6c6c6c;
+      font-size: 1.2rem;
+      font-family: "Lato", sans-serif;
+      margin-top: 10px;
+      text-align: justify; }
+
+/*# sourceMappingURL=page.css.map */

@@ -33,7 +33,7 @@ class eUser
 	}
 
 	static function logout() {
-    $ci =& get_instance();
+        $ci =& get_instance();
 		$ci->session->sess_destroy();
 	}
 }

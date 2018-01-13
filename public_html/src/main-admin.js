@@ -85,8 +85,8 @@
 
         let title = carouselSelected.querySelector('h1');
         // let description = carouselSelected.querySelector('p');
-        let button = carouselSelected.querySelector('button');
-
+        let button = carouselSelected.querySelector('a');
+        
         //setting the animation
         translateX(title, -500);
         // translateX(description, -500);
