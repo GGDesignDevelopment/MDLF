@@ -40,7 +40,7 @@
     <div id="sections-container">
         <section class="page-info">
             <div class="image-holder">
-                <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="Portada">
+                <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">
             </div>
             <div class="info-holder">
                 <h1><?php echo $page->titulo; ?></h1>
@@ -48,15 +48,34 @@
             </div>
         </section>
         <section class="page-content">
-            <div class="page-children">
-
-            </div>
-            <div class="page-photos">
-
-            </div>
+            <?php if($folders) {?>
+                <h2>Albumes</h2>
+                <div class="page-albums">
+                    <?php foreach ($folders as $folder): ?>
+                        <div>
+                            <img src="<?php echo site_url($photosDirectory . $folder->portada); ?>" alt="<?php echo $folder->titulo; ?>">
+                            <a href="<?php echo site_url('page/id/' . $folder->id); ?>"></a>
+                        </div>
+                    <?php endforeach;?>
+                </div>
+            <?php } ?>
+            <?php if($photos) {?>
+                <h2>Fotos</h2>
+                <div class="page-photos">
+                    <?php foreach ($photos as $photo): ?>
+                        <div>
+                            <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>">
+                        </div>
+                    <?php endforeach;?>
+                </div>
+            <?php } ?>
         </section>
     </div>
-    <!-- <script src="<?php // echo site_url('src/main.js'); ?>"></script> -->
+    <div id="modal-content">
+        <span id="modal-close">&times;</span>
+        <img id="modal-image" src="">
+    </div>
+    <script src="<?php echo site_url('src/page.js'); ?>"></script>
     <noscript>
       Please enable JavaScript to view this website.
     </noscript>
