@@ -3,20 +3,28 @@
     const body = document.querySelector('body');
     const photos = document.querySelectorAll('.page-photos img');
     const modal = document.querySelector('#modal-content');
-    const modalImg = modal.querySelector('#modal-image');
+    const modalImages = modal.querySelectorAll('.modal-image');
     const modalClose = modal.querySelector('#modal-close');
+    const modalPrev = modal.querySelector('#modal-prev');
+    const modalNext = modal.querySelector('#modal-next');
 
+    let slideIndex = 1;
 
     modalClose.addEventListener('click', closeModal);
-    body.addEventListener('keydown',escModal);
+    body.addEventListener('keydown', modalControl);
+    modalPrev.addEventListener('click', function(){moveSlides(-1);});
+    modalNext.addEventListener('click', function(){moveSlides(1);});
 
-    for(i=0 ; i<imgs.length ; i++){
+    for(let i=0 ; i<imgs.length ; i++){
         imgs[i].addEventListener('load',resizeImage);
         imgs[i].src = imgs[i].src
     }
 
-    for (var i = 0; i < photos.length; i++) {
-        photos[i].addEventListener('click',openModal);
+    for (let i = 0; i < photos.length; i++) {
+        photos[i].addEventListener('click', function(){
+            openModal();
+            currentSlide(i+1);
+        });
     }
 
     function resizeImage(event) {
@@ -29,18 +37,40 @@
 
     function openModal(e) {
         modal.style.display = 'flex';
-        modalImg.src = e.target.src;
         body.classList.add('modal-open');
     }
 
-    function escModal(e) {
+    function modalControl(e) {
         if (e.keyCode == 27) {
             closeModal();
+        }
+        if (e.keyCode == 37) {
+            moveSlides(-1);
+        }
+        if (e.keyCode == 39) {
+            moveSlides(1);
         }
     }
 
     function closeModal() {
         modal.style.display = 'none';
         body.classList.remove('modal-open');
+    }
+
+    function moveSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        if (n > modalImages.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = modalImages.length}
+        for (let i = 0; i < modalImages.length; i++) {
+            modalImages[i].style.display = "none";
+        }
+        modalImages[slideIndex-1].style.display = "block";
     }
 })();

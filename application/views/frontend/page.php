@@ -72,8 +72,12 @@
         </section>
     </div>
     <div id="modal-content">
-        <span id="modal-close">&times;</span>
-        <img id="modal-image" src="">
+        <span id="modal-close" class="modal-control close-btn">&times;</span>
+        <?php foreach ($photos as $photo): ?>
+            <img class="modal-image" src="<?php echo site_url($photosDirectory . $photo->foto); ?>">
+        <?php endforeach;?>
+        <span id="modal-prev" class="modal-control prev-btn">&#10094;</span>
+        <span id="modal-next" class="modal-control next-btn">&#10095;</span>
     </div>
     <script src="<?php echo site_url('src/page.js'); ?>"></script>
     <noscript>

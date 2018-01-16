@@ -136,20 +136,30 @@ body.modal-open {
   background-color: rgba(0, 0, 0, 0.9);
   justify-content: center;
   align-items: center; }
-  #modal-content #modal-image {
-    height: 80vh;
-    max-width: 90vw; }
-  #modal-content #modal-close {
+  #modal-content .modal-control {
     position: absolute;
-    top: 15px;
-    right: 35px;
     color: #fcfcfc;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s; }
-    #modal-content #modal-close:hover, #modal-content #modal-close:focus {
+    #modal-content .modal-control:hover, #modal-content .modal-control:focus {
       color: #bbb;
       text-decoration: none;
       cursor: pointer; }
+    #modal-content .modal-control.close-btn {
+      top: 15px;
+      right: 35px; }
+    #modal-content .modal-control.prev-btn {
+      margin-top: -50px;
+      top: 50%;
+      left: 20px; }
+    #modal-content .modal-control.next-btn {
+      margin-top: -50px;
+      top: 50%;
+      right: 35px; }
+  #modal-content .modal-image {
+    display: none;
+    height: 80vh;
+    max-width: 90vw; }
 
 /*# sourceMappingURL=page.css.map */
