@@ -34,7 +34,7 @@
             <h1>Mariana de la Fuente</h1>
         </div>
         <div class="pages-nav">
-            <a name="portfolio" href="<?php echo site_url(); ?>">portfolio</a>
+            <a name="inicio" href="<?php echo site_url(); ?>">Inicio</a>
         </div>
     </header>
     <div id="sections-container">

@@ -111,6 +111,7 @@ header div h1 {
 header div a {
     font-family: var(--text-font);
     color: var(--medium-color);
+    padding: 0px 20px
 }
 
 
@@ -126,7 +127,8 @@ header div a {
 }
 
 section {
-    height: 100vh;
+    /* height: 100vh; */
+    height: 90vh;
     width: 100vw;
 }
 
@@ -229,14 +231,14 @@ section.about {
 
 .img-holder.profile {
     /*grid-column: col 1;*/
-    grid-row: row / span 3;
+    grid-row: row / span 4;
     align-self: end;
     border-bottom: 5px solid var(--accent-color);
 }
 
 .info-holder.profile {
     /*grid-column: col 1;*/
-    grid-row: row 4 / span 5;
+    grid-row: row 5 / span 4;
 }
 
 .img-holder.about-me {
@@ -404,7 +406,7 @@ img.flip {
 }
 
 section.contact-holder {
-    height: 20vh;
+    height: 10vh;
     background: var(--accent-faded);
     box-shadow: var(--shadow-three);
     display: flex;

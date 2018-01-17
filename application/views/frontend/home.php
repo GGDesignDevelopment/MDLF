@@ -34,7 +34,8 @@
             <h1>Mariana de la Fuente</h1>
         </div>
         <div class="pages-nav">
-            <a name="portfolio" href="portfolio">portfolio</a>
+            <!-- <a name="sobremi" href="#section-about">Sobre Mi</a> -->
+            <a name="contacto" href="#section-contact">Contacto</a>
         </div>
     </header>
     <div id="sections-container">
@@ -52,7 +53,7 @@
                 <?php endforeach;?>
             </my-carousel>
         </section>
-        <section class="about">
+        <section id="section-about" class="about">
             <div class="img-holder profile">
                 <div class="img-crop flip">
                     <img src="<?php echo site_url($photosDirectory . $config->imagenPerfil); ?>" class="flip" alt="Mariana de la Fuente">
@@ -106,7 +107,7 @@
                 </p>
             </div>
         </section>
-        <section class="contact-holder">
+        <section id="section-contact" class="contact-holder">
             <p>¿Queres comunicarte conmigo?</p>
             <button class="contact-button">Mandame un mensaje</button>
             <modal-element>
