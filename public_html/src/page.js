@@ -12,12 +12,15 @@
 
     modalClose.addEventListener('click', closeModal);
     body.addEventListener('keydown', modalControl);
-    modalPrev.addEventListener('click', function(){moveSlides(-1);});
-    modalNext.addEventListener('click', function(){moveSlides(1);});
+    modalPrev.addEventListener('click', () => moveSlides(-1));
+    modalNext.addEventListener('click', () => moveSlides(1));
 
     for(let i=0 ; i<imgs.length ; i++){
-        imgs[i].addEventListener('load',resizeImage);
-        imgs[i].src = imgs[i].src
+        if (imgs[i].complete) {
+            resizeImage(imgs[i]);
+        } else {
+            imgs[i].addEventListener('load',() => resizeImage(imgs[i]));
+        }
     }
 
     for (let i = 0; i < photos.length; i++) {
@@ -27,11 +30,11 @@
         });
     }
 
-    function resizeImage(event) {
-        if (event.target.width >= event.target.height) {
-            event.target.classList.add('ancho');
+    function resizeImage(img) {
+        if (img.width >= img.height) {
+            img.classList.add('ancho');
         } else {
-            event.target.classList.add('largo');
+            img.classList.add('largo');
         }
     }
 
