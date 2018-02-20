@@ -9,7 +9,8 @@ class ePage extends Entity
   public $titulo;
   public $texto;
   public $portada;
-
+  public $padre;
+  
   // protected $imagenes;
   // protected $hijos;
 

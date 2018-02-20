@@ -40,6 +40,7 @@
     <div id="sections-container">
         <section class="page-info">
             <div class="image-holder">
+                <a href="<?php echo site_url(($page->padre!=0)?'page/id/' . $page->padre:'')?>">Volver</a>                
                 <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">
             </div>
             <div class="info-holder">
@@ -55,6 +56,7 @@
                         <div>
                             <img src="<?php echo site_url($photosDirectory . $folder->portada); ?>" alt="<?php echo $folder->titulo; ?>">
                             <a href="<?php echo site_url('page/id/' . $folder->id); ?>"></a>
+                            <span><?php echo $folder->titulo; ?></span>
                         </div>
                     <?php endforeach;?>
                 </div>

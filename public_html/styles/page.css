@@ -59,11 +59,29 @@ header {
   .page-info .image-holder {
     overflow: hidden;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    position: relative; }
     .page-info .image-holder img {
       max-width: 100%;
       width: 100%;
       height: auto; }
+    .page-info .image-holder a {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: "Lato", sans-serif;
+      font-size: 0.8rem;
+      background: #fcff5f;
+      color: #262626;
+      padding: 12px 24px;
+      z-index: 5;
+      border: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      text-transform: uppercase; }
+      .page-info .image-holder a:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+      .page-info .image-holder a:focus {
+        outline: none; }
   .page-info .info-holder {
     padding: 10px 30px;
     background-color: rgba(252, 255, 95, 0.7); }
@@ -119,7 +137,26 @@ header {
         top: 0;
         left: 0;
         height: 100%;
-        width: 100%; }
+        width: 100%;
+        z-index: 3; }
+      .page-content .page-albums div span,
+      .page-content .page-photos div span {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        max-height: 25%;
+        width: 100%;
+        background: rgba(252, 255, 95, 0.7);
+        padding: 5px;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: 0.9em;
+        font-family: "Lato", sans-serif;
+        text-align: center; }
+      .page-content .page-albums div:hover span,
+      .page-content .page-photos div:hover span {
+        display: block; }
 
 body.modal-open {
   overflow: hidden; }

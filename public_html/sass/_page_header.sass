@@ -8,10 +8,28 @@
         overflow: hidden
         display: flex
         align-items: center
+        position: relative
         img
             max-width: 100%
             width: 100%
             height: auto
+        a
+            position: absolute
+            top: 10px
+            left: 10px
+            font-family: $text-font
+            font-size: .8rem
+            background: $accent-color
+            color: $main-color
+            padding: 12px 24px
+            z-index: 5
+            border: 0
+            box-shadow: $shadow-one
+            text-transform: uppercase
+            &:hover
+                box-shadow: $shadow-three
+            &:focus
+                outline: none
     .info-holder
         padding: 10px 30px
         background-color: $accent-faded
