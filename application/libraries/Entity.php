@@ -76,7 +76,7 @@ class Entity
 
   function delete()
   {
-    if ($this->update)
+    if ($this->loaded)
     {
       $ci =& get_instance();
       $class = get_called_class();

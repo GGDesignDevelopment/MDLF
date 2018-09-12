@@ -2,6 +2,7 @@
     const carousel = document.querySelector('my-carousel');
     const btnSaveAbout = document.querySelector('#btnSaveAbout');
     const about = document.querySelector('section.about');
+    const btnNew = document.querySelector('#btnNew');
 
     // FormData info
     const telefono = about.querySelector("input[name='telefono']");
@@ -22,6 +23,7 @@
     });
 
     btnSaveAbout.addEventListener('click', saveConfig);
+    btnNew.addEventListener('click', newPage);
     carousel.addEventListener('pagechanged', animateCarouselItems);
 
     for(i=0 ; i<fileInputs.length ; i++){
@@ -38,6 +40,11 @@
             }
             reader.readAsDataURL(event.target.files[0]);
         }
+    }
+
+    function newPage() {
+        let link = btnNew.getAttribute("data-link");
+        window.location.href = link;
     }
 
     function saveConfig() {
@@ -62,7 +69,7 @@
             body: formData
         }
         fetch(formAction, headers)
-            .then(() => console.log('then'))
+            .then(() => alert("Información guardada con exito!"))
             .catch(() => console.log('error'));
     }
 
@@ -86,7 +93,7 @@
         let title = carouselSelected.querySelector('h1');
         // let description = carouselSelected.querySelector('p');
         let button = carouselSelected.querySelector('a');
-        
+
         //setting the animation
         translateX(title, -500);
         // translateX(description, -500);

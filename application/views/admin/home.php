@@ -32,9 +32,13 @@
             <div class="title-holder">
                 <h1>Mariana de la Fuente</h1>
             </div>
-            <!-- <div class="pages-nav">
-                <a name="portfolio" href="#">portfolio</a>
-            </div> -->
+            <div class="toolbar">
+                <button id="btnSaveAbout" data-action="<?php echo site_url('admin/home/saveConfig');?>">Guardar</button>
+                <button id="btnNew" data-link="<?php echo site_url('admin/page/id/');?>">Crear</button>
+            </div>
+            <div class="pages-nav">
+                <a name="inicio" href="<?php echo site_url('admin/contactos'); ?>">Contactos</a>
+            </div>
         </header>
         <div id="sections-container">
             <section class="image-navigator-holder">
@@ -42,7 +46,7 @@
                     <?php foreach ($pages as $page): ?>
                     <div>
                         <h1>
-                            <?php echo $page->descripcion; ?>
+                            <?php echo $page->titulo; ?>
                         </h1>
                         <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">
                         <a href="<?php echo site_url('admin/page/id/' . $page->id); ?>">Ver Mas</a>
@@ -110,7 +114,6 @@
                     <br>
                     <textarea name="textoMiTrabajo" placeholder="Texto mi trabajo"><?php echo $config->textoMiTrabajo; ?></textarea>
                 </div>
-                <button id="btnSaveAbout" data-action="<?php echo site_url('admin/home/saveConfig');?>">Guardar</button>
             </section>
         </div>
         <script src="src/main-admin.js"></script>

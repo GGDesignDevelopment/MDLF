@@ -10,9 +10,33 @@ class Page extends Admin_Controller {
 		$this->data['title'] = "Mariana de la Fuente";
 		$this->data['page'] = new ePage();
 		$this->data['page']->load(['id' => $id]);
+		$this->data['padres'] = ePage::find();
 		$this->data['folders'] = ePage::find(['padre' => $id]);
 		$this->data['photos'] = ePagePhoto::find(['id' => $id]);
-		$this->load->view('frontend/page',$this->data);
+		$this->load->view('admin/page',$this->data);
+	}
+
+	function save($id=null)
+	{
+	 	$page = new ePage();
+		if ($id) {
+			$page->load(['id' => $id]);
+		}
+		$page->titulo = $this->input->post('titulo');
+		$page->texto = $this->input->post('texto');
+		$page->padre = $this->input->post('padre');
+		$page->save();
+	}
+
+	function delete($id) {
+		// $photos = ePagePhoto::find(['id' => $id]);
+		// foreach ($photos as $photo) {
+		// 	$photo->delete();
+		// 	unlink($this->data['photosDirectory']  . $photo->foto);
+		// }
+		$page = new ePage();
+		$page->load(['id' => $id]);
+		$page->delete();
 	}
 
 	function edit($id = NULL) {
@@ -115,10 +139,6 @@ class Page extends Admin_Controller {
 		$this->load->view('admin/_layout_main',$this->data);
 	}
 
-	function delete($id) {
-		$this->page_m->delete($id);
-		redirect('admin/page');
-	}
 
 	function delete_image($id, $secuencial) {
 		$directorio = 'img/';

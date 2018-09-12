@@ -45,7 +45,7 @@
                 <?php foreach ($pages as $page): ?>
                 <div>
                     <h1>
-                        <?php echo $page->descripcion; ?>
+                        <?php echo $page->titulo; ?>
                     </h1>
                     <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">
                     <a href="<?php echo site_url('page/id/' . $page->id); ?>">Ver Mas</a>
