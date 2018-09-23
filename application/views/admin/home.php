@@ -7,7 +7,7 @@
         <title><?php echo $title; ?></title>
         <meta name="description" content="My App description">
 
-        <link rel="icon" href="img/favicon.ico">
+        <link rel="icon" href="<?php  echo site_url('img/favicon.ico'); ?>">
 
         <!-- See https://goo.gl/OOhYW5 -->
         <link rel="manifest" href="manifest.json">
@@ -16,14 +16,14 @@
         <meta name="theme-color" content="#3f51b5">
 
         <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-        <script src="src/webcomponentsjs/webcomponents-loader.js"></script>
+        <script src="<?php  echo site_url('src/webcomponentsjs/webcomponents-loader.js'); ?>"></script>
 
         <!-- Load your application shell -->
-        <script src="src/bundle.js"></script>
+        <script src="<?php  echo site_url('src/bundle.js'); ?>"></script>
 
         <!-- Add any global styles for body, document, etc. -->
-        <link rel="stylesheet" href="styles/home-admin.css" type="text/css">
-        <link rel="stylesheet" media="(max-width: 1300px)" href="styles/devices.css" />
+        <link rel="stylesheet" href="<?php  echo site_url('styles/home-admin.css'); ?>" type="text/css">
+        <link rel="stylesheet" media="(max-width: 1300px)" href="<?php  echo site_url('styles/devices.css'); ?>" />
 
     </head>
 
@@ -116,7 +116,7 @@
                 </div>
             </section>
         </div>
-        <script src="src/main-admin.js"></script>
+        <script src="<?php echo site_url('src/main-admin.js'); ?>"></script>
         <noscript>
           Please enable JavaScript to view this website.
         </noscript>

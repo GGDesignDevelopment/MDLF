@@ -12,5 +12,6 @@ class MY_Controller extends CI_Controller {
 		$this->data['scripts'] = array();
 		$this->data['styles'] = array();
 		$this->data['photosDirectory'] = 'photos/';
+		$this->load->model('log_m');
 	}
 }

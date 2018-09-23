@@ -15,7 +15,6 @@ class Home extends Frontend_Controller {
 		$this->data['pages'] = ePage::find(['padre' => 0]);
 		$this->data['config'] = new eConfig();
 		$this->data['config']->load();
-		// $this->data['social'] = eSocial::find(['enabled' => 'S']);
 		$this->load->view('frontend/home',$this->data);
 	}
 

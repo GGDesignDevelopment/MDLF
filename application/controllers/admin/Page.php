@@ -18,7 +18,7 @@ class Page extends Admin_Controller {
 
 	function save($id=null)
 	{
-	 	$page = new ePage();
+		$page = new ePage();
 		if ($id) {
 			$page->load(['id' => $id]);
 		}

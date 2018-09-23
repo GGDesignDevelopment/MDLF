@@ -18,12 +18,12 @@ class Page_M extends MY_Model {
 		return $page;
 	}
 
-	function delete($where = null) {
- 		parent::delete($id);
-		$this->db->set(array('padre' => 0));
-		$this->db->where('padre', $id);
-		$this->db->update($this->_table_name);
-	}
+	// function delete($where = null) {
+ 	// 	parent::delete($id);
+	// 	$this->db->set(array('padre' => 0));
+	// 	$this->db->where('padre', $id);
+	// 	$this->db->update($this->_table_name);
+	// }
 
 	function get_con_padres($id = NULL, $single = FALSE) {
 		$this->db->select('paginas.*, p.descripcion as padreDescripcion');
