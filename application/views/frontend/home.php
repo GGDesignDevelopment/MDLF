@@ -111,11 +111,11 @@
             <p>¿Queres comunicarte conmigo?</p>
             <button class="contact-button">Mandame un mensaje</button>
             <modal-element>
-                <div class="top-bar">
-                    <p>Mensaje Nuevo</p>
-                    <button action="close">&#10006;</button>
-                </div>
-                <form action="<?php echo site_url('home/contact');?>">
+              <div class="top-bar">
+                  <p>Mensaje Nuevo</p>
+                  <button action="close">&#10006;</button>
+              </div>
+              <form action="<?php echo site_url('home/contact');?>">
                     <div>
                         <p class="static">Para: <span>Mariana De La Fuente</span></p>
                     </div>
@@ -136,7 +136,7 @@
                     </div>
                     <div>
                         <button type="submit" class="confirm">Enviar &#9993;</button>
-                        <button class="cancel" data-text="Borrar datos">&#10006;</button>
+                        <button class="cancel" type="button" data-text="Borrar datos">&#10006;</button>
                     </div>
                 </form>
             </modal-element>

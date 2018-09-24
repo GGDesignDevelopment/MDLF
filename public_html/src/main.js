@@ -29,21 +29,31 @@
                 body: formData
             }
             fetch(formAction, headers)
-                .then(() => console.log('then'))
+                .then(() => mensajeEnviado())
                 .catch(() => console.log('error'));
+        } else {
+          alert('Por favor complete los campos para enviar un mensaje');
         }
         e.preventDefault();
     }
 
-    function clearFormData() {
+    function mensajeEnviado() {
+      alert('Se ha enviado su mensaje con exito');
+      form.reset();
+    }
 
+    function clearFormData() {
+      form.reset();
     }
 
     function validateFormData(formData) {
-        for (let field of formData.entries()) {
-            console.log(field);
+      var valid = true;
+      for (let field of formData.entries()) {
+        if (field[1].length == 0) {
+          valid = false;
         }
-        return true;
+      }
+      return valid;
     }
 
     function translateX(elem, x, transition) {
