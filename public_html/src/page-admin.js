@@ -15,6 +15,7 @@
     const titulo = document.querySelector("input[name='titulo']");
     const texto = document.querySelector("textarea[name='texto']");
     const padre = document.querySelector("select[name='padre']");
+    const imgPortada = document.querySelector("#imgPortada");
 
     let slideIndex = 1;
 
@@ -23,6 +24,7 @@
     modalPrev.addEventListener('click', () => moveSlides(-1));
     modalNext.addEventListener('click', () => moveSlides(1));
     btnSave.addEventListener('click', savePage);
+    imgPortada.addEventListener("change",loadImage);
 
     if (btnNew) {
         btnNew.addEventListener('click', newPage);
@@ -48,6 +50,18 @@
         });
     }
 
+    function loadImage (event) {
+        if (event.target.files[0].size / 1024 > 2048) {
+            alert("La imagen no puede ser mayor a 2 MB");
+        } else {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                event.target.closest("div").querySelector("img").src = e.target.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    }
+
     function newPage() {
         let link = btnNew.getAttribute("data-link");
         window.location.href = link;
@@ -59,7 +73,7 @@
         formData.set('titulo',titulo.value);
         formData.set('texto',texto.value);
         formData.set('padre',padre.value);
-        // formData.set('imagenPerfil', fileInputs[0].files[0], fileInputs[0].value);
+        formData.set('imagenPortada', imgPortada.files[0], imgPortada.value);
         // formData.set('imagenSobreMi', fileInputs[1].files[0], fileInputs[1].value);
         // formData.set('imagenMiTrabajo', fileInputs[2].files[0], fileInputs[2].value);
 

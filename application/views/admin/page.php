@@ -51,6 +51,7 @@
             <div class="image-holder">
                 <a href="<?php echo site_url(($page->padre!=0)?'admin/page/id/' . $page->padre:'admin')?>">Volver</a>
                 <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">
+                <input id="imgPortada" type="file"/>
             </div>
             <div class="info-holder">
                 <input name="titulo" value="<?php echo $page->titulo; ?>" placeholder="Titulo Pagina"></input>
@@ -77,14 +78,16 @@
                     <?php endforeach;?>
                 </div>
             <?php } ?>
-            <h2>Fotos</h2>
-            <div class="page-photos">
-                <?php foreach ($photos as $photo): ?>
-                    <div>
-                        <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>">
-                    </div>
-                <?php endforeach;?>
-            </div>
+            <?php if($photos) {?>
+                <h2>Fotos</h2>
+                <div class="page-photos">
+                  <?php foreach ($photos as $photo): ?>
+                      <div>
+                          <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>">
+                      </div>
+                  <?php endforeach;?>
+                </div>
+            <?php } ?>
         </section>
     </div>
     <div id="modal-content">

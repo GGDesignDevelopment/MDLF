@@ -25,6 +25,19 @@ class Page extends Admin_Controller {
 		$page->titulo = $this->input->post('titulo');
 		$page->texto = $this->input->post('texto');
 		$page->padre = $this->input->post('padre');
+
+		if (!empty($_FILES['imagenPortada']) && $_FILES['imagenPortada']['name'] != '') {
+			$actual = $page->portada;
+			$ext = explode('.', basename($_FILES['imagenPortada']['name']));
+			$name = md5(uniqid()) . "." . array_pop($ext);
+			if (move_uploaded_file($_FILES['imagenPortada']['tmp_name'], $this->data['photosDirectory'] . $name)) {
+				$page->portada = $name;
+				if ($actual != '') {
+					unlink($this->data['photosDirectory'] . $actual);
+				}
+			}
+		}
+
 		$page->save();
 	}
 
