@@ -9,6 +9,10 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  background-color: #D6D3D2;
+}
+
 a,
 a:hover,
 a:focus,

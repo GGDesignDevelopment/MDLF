@@ -1,18 +1,22 @@
 .page-info
-    max-height: 70vh
-    height: 70vh
     display: grid
     grid-template-columns:  3fr 2fr
-    padding: 10px 15px 10px 10px
+    margin: 10px 15px 10px 10px
+    box-shadow: $shadow-three
+    @media (max-width: 600px)
+        grid-template-columns:  1fr
+
     .image-holder
         overflow: hidden
         display: flex
-        align-items: center
         position: relative
+        max-height: 70vh
+        @media (max-width: 600px)
+            max-height: 200px
         img
             max-width: 100%
             width: 100%
-            height: auto
+            object-fit: cover
         a
             position: absolute
             top: 10px

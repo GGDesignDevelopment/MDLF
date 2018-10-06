@@ -70,11 +70,10 @@
                 <h2>Albumes</h2>
                 <div class="page-albums">
                     <?php foreach ($folders as $folder): ?>
-                        <div>
-                            <img src="<?php echo site_url($photosDirectory . $folder->portada); ?>" alt="<?php echo   $folder->titulo; ?>">
-                            <a href="<?php echo site_url('admin/page/id/' . $folder->id); ?>"></a>
-                            <span><?php echo $folder->titulo; ?></span>
-                        </div>
+                            <a href="<?php echo site_url('admin/page/id/' . $folder->id); ?>">
+                                <img src="<?php echo site_url($photosDirectory . $folder->portada); ?>" alt="<?php echo   $folder->titulo; ?>">
+                                <span><?php echo $folder->titulo; ?></span>
+                            </a>
                     <?php endforeach;?>
                 </div>
             <?php } ?>
@@ -82,9 +81,7 @@
                 <h2>Fotos</h2>
                 <div class="page-photos">
                   <?php foreach ($photos as $photo): ?>
-                      <div>
-                          <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>">
-                      </div>
+                      <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>">
                   <?php endforeach;?>
                 </div>
             <?php } ?>

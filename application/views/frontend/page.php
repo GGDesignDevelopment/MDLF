@@ -41,7 +41,7 @@
         <section class="page-info">
             <div class="image-holder">
                 <a href="<?php echo site_url(($page->padre!=0)?'page/id/' . $page->padre:'')?>">Volver</a>
-                <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">                
+                <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">
             </div>
             <div class="info-holder">
                 <h1><?php echo $page->titulo; ?></h1>
@@ -53,11 +53,10 @@
                 <h2>Albumes</h2>
                 <div class="page-albums">
                     <?php foreach ($folders as $folder): ?>
-                        <div>
+                        <a href="<?php echo site_url('page/id/' . $folder->id); ?>">
                             <img src="<?php echo site_url($photosDirectory . $folder->portada); ?>" alt="<?php echo $folder->titulo; ?>">
-                            <a href="<?php echo site_url('page/id/' . $folder->id); ?>"></a>
                             <span><?php echo $folder->titulo; ?></span>
-                        </div>
+                        </a>
                     <?php endforeach;?>
                 </div>
             <?php } ?>
@@ -65,9 +64,7 @@
                 <h2>Fotos</h2>
                 <div class="page-photos">
                     <?php foreach ($photos as $photo): ?>
-                        <div>
-                            <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>">
-                        </div>
+                        <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>">
                     <?php endforeach;?>
                 </div>
             <?php } ?>

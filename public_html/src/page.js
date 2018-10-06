@@ -1,5 +1,5 @@
 (function() {
-    const imgs = document.querySelectorAll('.page-content img');
+    // const imgs = document.querySelectorAll('.page-content img');
     const body = document.querySelector('body');
     const photos = document.querySelectorAll('.page-photos img');
     const modal = document.querySelector('#modal-content');
@@ -15,13 +15,13 @@
     modalPrev.addEventListener('click', () => moveSlides(-1));
     modalNext.addEventListener('click', () => moveSlides(1));
 
-    for(let i=0 ; i<imgs.length ; i++){
-        if (imgs[i].complete) {
-            resizeImage(imgs[i]);
-        } else {
-            imgs[i].addEventListener('load',() => resizeImage(imgs[i]));
-        }
-    }
+    // for(let i=0 ; i<imgs.length ; i++){
+    //     if (imgs[i].complete) {
+    //         resizeImage(imgs[i]);
+    //     } else {
+    //         imgs[i].addEventListener('load',() => resizeImage(imgs[i]));
+    //     }
+    // }
 
     for (let i = 0; i < photos.length; i++) {
         photos[i].addEventListener('click', function(){

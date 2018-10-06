@@ -4,44 +4,26 @@
         font-family: $text-font
         color: $main-color
         font-size: 1.5rem
+        margin: 10px 0 10px 0
     .page-albums,
     .page-photos
-        display: flex
-        justify-content: flex-start
-        flex-wrap: wrap
-        div
-            background-color: grey
-            margin: 10px
-            width: 200px
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+        grid-gap: 20px
+        img
+            cursor: pointer
+            width: 100%
             height: 200px
-            display: flex
-            overflow: hidden
-            align-items: center
-            justify-content: center
+            object-fit: cover
+            box-shadow: $shadow-three
+        a
             position: relative
-            img
-                cursor: pointer
-                &.largo
-                    max-width: 100%
-                    width: 100%
-                    height: auto
-                &.ancho
-                    max-height: 100%
-                    height: 100%
-                    width: auto
-            a
-                position: absolute
-                top: 0
-                left: 0
-                height: 100%
-                width: 100%
-                z-index: 3
+            z-index: 3
+            height: 200px
             span
-                display: none
                 position: absolute
                 bottom: 0
                 left: 0
-                max-height: 25%
                 width: 100%
                 background: $accent-faded
                 padding: 5px
@@ -50,5 +32,6 @@
                 font-size: .9em
                 font-family: $text-font
                 text-align: center
+                transition: 5s
             &:hover span
                 display: block

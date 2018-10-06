@@ -7,6 +7,10 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  background-color: #D6D3D2;
+}
+
 a,
 a:hover,
 a:focus,
@@ -87,22 +91,31 @@ header .toolbar button:last-child {
 }
 
 .page-info {
-  max-height: 70vh;
-  height: 70vh;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  padding: 10px 15px 10px 10px;
+  margin: 10px 15px 10px 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+@media (max-width: 600px) {
+  .page-info {
+    grid-template-columns: 1fr;
+  }
 }
 .page-info .image-holder {
   overflow: hidden;
   display: flex;
-  align-items: center;
   position: relative;
+  max-height: 70vh;
+}
+@media (max-width: 600px) {
+  .page-info .image-holder {
+    max-height: 200px;
+  }
 }
 .page-info .image-holder img {
   max-width: 100%;
   width: 100%;
-  height: auto;
+  object-fit: cover;
 }
 .page-info .image-holder a {
   position: absolute;
@@ -172,57 +185,33 @@ header .toolbar button:last-child {
   font-family: "Lato", sans-serif;
   color: #262626;
   font-size: 1.5rem;
+  margin: 10px 0 10px 0;
 }
 .page-content .page-albums,
 .page-content .page-photos {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
 }
-.page-content .page-albums div,
-.page-content .page-photos div {
-  background-color: grey;
-  margin: 10px;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.page-content .page-albums div img,
-.page-content .page-photos div img {
+.page-content .page-albums img,
+.page-content .page-photos img {
   cursor: pointer;
-}
-.page-content .page-albums div img.largo,
-.page-content .page-photos div img.largo {
-  max-width: 100%;
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-.page-content .page-albums div img.ancho,
-.page-content .page-photos div img.ancho {
-  max-height: 100%;
-  height: 100%;
-  width: auto;
-}
-.page-content .page-albums div a,
-.page-content .page-photos div a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+.page-content .page-albums a,
+.page-content .page-photos a {
+  position: relative;
   z-index: 3;
+  height: 200px;
 }
-.page-content .page-albums div span,
-.page-content .page-photos div span {
-  display: none;
+.page-content .page-albums a span,
+.page-content .page-photos a span {
   position: absolute;
   bottom: 0;
   left: 0;
-  max-height: 25%;
   width: 100%;
   background: rgba(252, 255, 95, 0.7);
   padding: 5px;
@@ -231,9 +220,10 @@ header .toolbar button:last-child {
   font-size: 0.9em;
   font-family: "Lato", sans-serif;
   text-align: center;
+  transition: 5s;
 }
-.page-content .page-albums div:hover span,
-.page-content .page-photos div:hover span {
+.page-content .page-albums a:hover span,
+.page-content .page-photos a:hover span {
   display: block;
 }
 
@@ -251,8 +241,6 @@ body.modal-open {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
-  justify-content: center;
-  align-items: center;
 }
 #modal-content .modal-control {
   position: absolute;
@@ -268,22 +256,27 @@ body.modal-open {
 }
 #modal-content .modal-control.close-btn {
   top: 15px;
-  right: 35px;
+  right: 20px;
 }
 #modal-content .modal-control.prev-btn {
-  margin-top: -50px;
+  transform: translateY(-50%);
   top: 50%;
   left: 20px;
 }
 #modal-content .modal-control.next-btn {
-  margin-top: -50px;
+  transform: translateY(-50%);
   top: 50%;
-  right: 35px;
+  right: 20px;
 }
 #modal-content .modal-image {
   display: none;
-  height: 80vh;
-  max-width: 90vw;
+  height: 90vh;
+  width: 80vw;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=page.css.map */
