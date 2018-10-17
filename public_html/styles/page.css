@@ -96,7 +96,7 @@ header .toolbar button:last-child {
   margin: 10px 15px 10px 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .page-info {
     grid-template-columns: 1fr;
   }
@@ -107,7 +107,7 @@ header .toolbar button:last-child {
   position: relative;
   max-height: 70vh;
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .page-info .image-holder {
     max-height: 200px;
   }
@@ -225,6 +225,35 @@ header .toolbar button:last-child {
 .page-content .page-albums a:hover span,
 .page-content .page-photos a:hover span {
   display: block;
+}
+.page-content .page-albums .btn-add,
+.page-content .page-photos .btn-add {
+  position: relative;
+  border-radius: 15px;
+  border: 3px dashed #333;
+}
+.page-content .page-albums .btn-add::before,
+.page-content .page-photos .btn-add::before {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5em;
+  font-weight: bold;
+}
+.page-content .page-albums .btn-add input,
+.page-content .page-photos .btn-add input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 2;
 }
 
 body.modal-open {

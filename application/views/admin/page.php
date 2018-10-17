@@ -9,20 +9,8 @@
     <meta name="description" content="My App description">
 
     <link rel="icon" href="<?php  echo site_url('img/favicon.ico'); ?>">
-
-    <!-- See https://goo.gl/OOhYW5 -->
     <link rel="manifest" href="manifest.json">
-
-    <!-- See https://goo.gl/qRE0vM -->
     <meta name="theme-color" content="#3f51b5">
-
-    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-    <!-- <script src="src/webcomponentsjs/webcomponents-loader.js"></script> -->
-
-    <!-- Load your application shell -->
-    <!-- <script src="src/bundle.js"></script> -->
-
-    <!-- Add any global styles for body, document, etc. -->
     <link rel="stylesheet" href="<?php  echo site_url('styles/page.css'); ?>" type="text/css">
     <link rel="stylesheet" media="(max-width: 1300px)" href="<?php  echo site_url('styles/devices.css'); ?>" />
 
@@ -51,7 +39,7 @@
             <div class="image-holder">
                 <a href="<?php echo site_url(($page->padre!=0)?'admin/page/id/' . $page->padre:'admin')?>">Volver</a>
                 <img src="<?php echo site_url($photosDirectory . $page->portada); ?>" alt="<?php echo $page->titulo; ?>">
-                <input id="imgPortada" type="file"/>
+                <input id="imgPortada" type="file" />
             </div>
             <div class="info-holder">
                 <input name="titulo" value="<?php echo $page->titulo; ?>" placeholder="Titulo Pagina"></input>
@@ -80,8 +68,11 @@
             <?php if($photos) {?>
                 <h2>Fotos</h2>
                 <div class="page-photos">
+                    <div class="btn-add">
+                        <input type="file" name="images" value="" multiple>
+                    </div>
                   <?php foreach ($photos as $photo): ?>
-                      <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>">
+                      <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>" draggable="true">
                   <?php endforeach;?>
                 </div>
             <?php } ?>

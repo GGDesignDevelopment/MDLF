@@ -1,7 +1,7 @@
 (function() {
-    const imgs = document.querySelectorAll('.page-content img');
     const body = document.querySelector('body');
     const photos = document.querySelectorAll('.page-photos img');
+    const container = document.querySelector('.page-photos');
     const modal = document.querySelector('#modal-content');
     const modalImages = modal.querySelectorAll('.modal-image');
     const modalClose = modal.querySelector('#modal-close');
@@ -16,8 +16,10 @@
     const texto = document.querySelector("textarea[name='texto']");
     const padre = document.querySelector("select[name='padre']");
     const imgPortada = document.querySelector("#imgPortada");
+    const images = document.querySelector("input[name='images']");
 
     let slideIndex = 1;
+    let elemDrag = null;
 
     modalClose.addEventListener('click', closeModal);
     body.addEventListener('keydown', modalControl);
@@ -25,6 +27,7 @@
     modalNext.addEventListener('click', () => moveSlides(1));
     btnSave.addEventListener('click', savePage);
     imgPortada.addEventListener("change",loadImage);
+    images.addEventListener("change", load_images);
 
     if (btnNew) {
         btnNew.addEventListener('click', newPage);
@@ -35,19 +38,48 @@
     if (btnCancel) {
         btnCancel.addEventListener('click', () => history.back());
     }
-    for(let i=0 ; i<imgs.length ; i++){
-        if (imgs[i].complete) {
-            resizeImage(imgs[i]);
-        } else {
-            imgs[i].addEventListener('load',() => resizeImage(imgs[i]));
-        }
-    }
 
-    for (let i = 0; i < photos.length; i++) {
-        photos[i].addEventListener('click', function(){
+    // for (let i = 0; i < photos.length; i++) {
+    //     photos[i].addEventListener('click', function(){
+    //         openModal();
+    //         currentSlide(i+1);
+    //     });
+    //
+    // }
+
+    photos.forEach(function(photo, i){
+        photo.addEventListener('click', function(){
             openModal();
             currentSlide(i+1);
         });
+        photo.addEventListener('dragstart', function (e) {
+            e.dataTransfer.effectAllowed = 'move';
+            elemDrag = this;
+        });
+        photo.addEventListener('dragover', function (e) {
+            e.preventDefault();
+        });
+        photo.addEventListener('drop', function (e) {
+            console.log(this);
+            if (elemDrag != this) {
+                container.insertBefore(elemDrag, this);
+            }
+        });
+    });
+
+    function load_images(event) {
+        let files = event.target.files;
+        let reader;
+        let img;
+        for (let i = 0; i < files.length; i++) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+                img = document.createElement("img");
+                img.src = e.target.result;
+                container.appendChild(img);
+            }
+            reader.readAsDataURL(files[i]);
+        }
     }
 
     function loadImage (event) {
@@ -83,7 +115,9 @@
         }
         fetch(actoinSave, headers)
             .then(function(a){
-                alert("Información guardada con exito!");
+                console.log(a);
+                // if ()
+                // alert("Información guardada con exito!");
                 // history.back();
             })
             .catch(() => console.log('error'));
@@ -100,14 +134,6 @@
                     // history.back();
                 })
                 .catch(() => console.log('error'));
-        }
-    }
-
-    function resizeImage(img) {
-        if (img.width >= img.height) {
-            img.classList.add('ancho');
-        } else {
-            img.classList.add('largo');
         }
     }
 

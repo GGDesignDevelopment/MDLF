@@ -15,27 +15,11 @@
     modalPrev.addEventListener('click', () => moveSlides(-1));
     modalNext.addEventListener('click', () => moveSlides(1));
 
-    // for(let i=0 ; i<imgs.length ; i++){
-    //     if (imgs[i].complete) {
-    //         resizeImage(imgs[i]);
-    //     } else {
-    //         imgs[i].addEventListener('load',() => resizeImage(imgs[i]));
-    //     }
-    // }
-
     for (let i = 0; i < photos.length; i++) {
         photos[i].addEventListener('click', function(){
             openModal();
             currentSlide(i+1);
         });
-    }
-
-    function resizeImage(img) {
-        if (img.width >= img.height) {
-            img.classList.add('ancho');
-        } else {
-            img.classList.add('largo');
-        }
     }
 
     function openModal(e) {

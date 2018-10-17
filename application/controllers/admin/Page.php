@@ -16,6 +16,7 @@ class Page extends Admin_Controller {
 		$this->load->view('admin/page',$this->data);
 	}
 
+
 	function save($id=null)
 	{
 		$page = new ePage();
@@ -39,6 +40,7 @@ class Page extends Admin_Controller {
 		}
 
 		$page->save();
+		// return "hola";
 	}
 
 	function delete($id) {

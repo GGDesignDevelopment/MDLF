@@ -21,12 +21,14 @@ class MY_Model extends CI_Model {
         return $data;
     }
 
-    public function get($where = null, $single = FALSE) {
+    public function get($where = null, $single = FALSE, $order = null) {
         if (count($where)) {
             $this->db->where($where);
         }
         $method = $single ? 'row' : 'result';
-        $this->db->order_by($this->_order_by);
+        if ($order) {
+            $this->db->order_by($order);
+        }
         return $this->db->get($this->_table_name)->$method();
     }
 

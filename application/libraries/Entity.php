@@ -11,13 +11,13 @@ class Entity
     // $this->id = 1;
   }
 
-  static function find($where = null)
+  static function find($where = null, $order = null)
   {
     $ci =& get_instance();
     $class = get_called_class();
     $model = $class::$_model;
 
-    $col = $ci->$model->get($where, false);
+    $col = $ci->$model->get($where, false, $order);
     $retorno = array();
 
     foreach($col as $item){

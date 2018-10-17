@@ -12,7 +12,7 @@ class Page extends Frontend_Controller {
 		$this->data['page'] = new ePage();
 		$this->data['page']->load(['id' => $id]);
 		$this->data['folders'] = ePage::find(['padre' => $id]);
-		$this->data['photos'] = ePagePhoto::find(['id' => $id]);
+		$this->data['photos'] = ePagePhoto::find(['id' => $id], 'order');
 		$this->load->view('frontend/page',$this->data);
 	}
 }
