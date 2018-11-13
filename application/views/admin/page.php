@@ -72,7 +72,7 @@
                         <input type="file" name="images" value="" multiple>
                     </div>
                   <?php foreach ($photos as $photo): ?>
-                      <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>" draggable="true">
+                      <img src="<?php echo site_url($photosDirectory . $photo->foto); ?>" draggable="true" data-id="<?php echo $photo->id; ?>">
                   <?php endforeach;?>
                 </div>
             <?php } ?>
